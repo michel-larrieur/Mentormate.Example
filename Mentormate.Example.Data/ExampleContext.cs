@@ -11,18 +11,12 @@ namespace Mentormate.Example.Data
     public class ExampleContext: DbContext
     {
 
-        public string DbPath { get; }
-
         public ExampleContext() {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "example.db");
+            Database.EnsureCreated();
         }
 
-        // The following configures EF to create a Sqlite database file in the
-        // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+            => options.UseInMemoryDatabase($"MentormateExample");
 
         public DbSet<Product> Products { get; set; }
 

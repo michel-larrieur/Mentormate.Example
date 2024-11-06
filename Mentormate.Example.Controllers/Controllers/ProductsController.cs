@@ -23,7 +23,7 @@ namespace Mentormate.Example.Controllers.Controllers
             {
                 Name = createProductDTO.Name,
                 Description = createProductDTO.Description,
-                CreatedBy = HttpContext.User.Identity.Name
+                CreatedBy = HttpContext?.User?.Identity?.Name ?? "example"
             });
             return Ok(guid);
         }

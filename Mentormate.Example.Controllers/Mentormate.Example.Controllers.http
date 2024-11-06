@@ -1,6 +1,0 @@
-@Mentormate.Example.Controllers_HostAddress = http://localhost:5269
-
-GET {{Mentormate.Example.Controllers_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
